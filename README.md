@@ -12,9 +12,10 @@ The Nest.js server will serve up the SPA React app in production.
 - [TailwindCSS](https://tailwindcss.com/)
 - [Jest](https://jestjs.io/)
 
-Because we're using workspaces, we can npm install packages in the root of the project and they will be available to both the server and the client.
-
+## Overview
 This app will use Turbo Repo to allow us both develop and deploy the app as a monorepo.
+
+Because we're using Turbo/workspaces, we can npm install packages in the root of the project and they will be available to both the server and the client.
 
 To install packages from the root of the project we can utilize the workspaces feature that Turbo repo provides. For example we can install a new package in the api folder by running:
 `npm install --workspace api <package-name>`
@@ -24,7 +25,7 @@ In the apps/client folder under vite.config.ts, we have a proxy set up to proxy 
 To accommodate this we also have changed the main.ts file in the server to use the /api prefix for all routes. This is done by adding:
 `app.setGlobalPrefix('api')`.
 
-To serve up the static React app in production, we use the Nest.js built-in static file server. We have installed the @nestjs/serve-static dependency and added:
+To serve up the static React app in production, we use the Nest.js built-in static file server. We have installed the `@nestjs/serve-static` dependency and added:
 
 ```javascript
 ServeStaticModule.forRoot({
