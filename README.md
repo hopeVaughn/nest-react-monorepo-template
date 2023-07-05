@@ -69,3 +69,13 @@ npm start
 ```
 
 The project will be available at <http://localhost:3000>
+
+### Installing new dependencies from the root of the project
+
+Because we have set up the project to use Turbo/workspaces, we can install new dependencies from the root of the project and they will be available to both the server and the client. To run the npm install command from the root of the project, you can run:
+
+```bash
+npm install --workspace <folder-name><prefix's-for-dev><package-name>
+```
+
+This should install the package in the folder you specify and add it to the package.json file in that folder.
